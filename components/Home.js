@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, ImageBackground } from 'react-native';
+import backgroundImage from '../assets/computador.jpg';
 
 export default function Home(props) {
     return (
+        <ImageBackground source={backgroundImage} style={styles.image}>
         <SafeAreaView style={styles.container}>
             <View style={styles.principal}>
                 <Text style={styles.titulo}> Partes do Computador </Text>
@@ -16,37 +18,45 @@ export default function Home(props) {
                 <TouchableOpacity style={styles.button} onPress={() => {props.navigation.navigate('placaVideo')}}>
                     <Text style={styles.textButton}> Placa de Vídeo </Text>
                 </TouchableOpacity>
-
             <StatusBar style="auto" />
         </SafeAreaView>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f4f4f4',
+        backgroundImage: '#f4f4f4',
         alignItems: 'center',
         justifyContent: 'center',
     },
+    image: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     titulo: {
-        fontSize:30
+        fontSize:30,
+        color: 'white'
     },
 
     subTitulo: {
-        fontSize: 15
+        fontSize: 15,
+        color: 'white'
     },
 
     button: {
         margin: 10,
-        padding: 5,
-        backgroundColor: '#add8e6',
+        padding: 10,
+        backgroundColor: 'black',
         borderRadius: 5,
         alignItems: 'center',
     },
 
     textButton: {
-        fontSize: 20
+        fontSize: 20,
+        color: 'white',
     },
 
     principal: {
@@ -54,6 +64,7 @@ const styles = StyleSheet.create({
         marginBottom: 50,
         borderWidth: 2,
         padding: 10,
-        backgroundColor: '#4f5a'
+        backgroundColor: 'black',
+        borderRadius: 10,
     }
 });
